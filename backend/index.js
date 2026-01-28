@@ -61,6 +61,17 @@ app.delete('/api/tasks/:id', (req, res) => {
     }
 });
 
+// Manejador de rutas no encontradas
+app.use((req, res) => {
+    res.status(404).json({ message: "La ruta solicitada no existe" });
+});
+
+// Manejador de errores interno del servidor
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: "Ocurrió un error interno en el servidor" });
+});
+
 // Levantar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
