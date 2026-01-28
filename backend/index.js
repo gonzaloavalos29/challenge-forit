@@ -17,6 +17,7 @@ app.get('/api/tasks', (req, res) => {
 
 // POST /api/tasks - Crear una nueva tarea
 app.post('/api/tasks', (req, res) => {
+    const { title, description } = req.body;
     const newTask = {
         id: Date.now().toString(), // ID único
         title,
@@ -27,9 +28,6 @@ app.post('/api/tasks', (req, res) => {
     tasks.push(newTask);
     res.status(201).json(newTask);
 });
-
-// Levantar servidor
-const PORT = process.env.PORT || 3000;
 
 // PUT /api/tasks/:id - Actualizar una tarea 
 app.put('/api/tasks/:id', (req, res) => {
@@ -63,6 +61,8 @@ app.delete('/api/tasks/:id', (req, res) => {
     }
 });
 
+// Levantar servidor
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
