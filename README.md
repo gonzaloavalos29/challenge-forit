@@ -44,6 +44,7 @@ npm.cmd run dev
 Una vez iniciados, abrir el navegador en: http://localhost:5173
 
 📝 Notas sobre el Desarrollo
+
 Se estructuró el frontend en componentes reutilizables (TaskForm, TaskList, TaskItem).
 
 Se implementó el manejo de estados con useState y useEffect para asegurar la sincronía con la API.
